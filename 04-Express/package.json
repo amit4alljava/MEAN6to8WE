@@ -1,0 +1,14 @@
+{
+  "name": "04-Express",
+  "version": "1.0.0",
+  "description": "Express as “a minimal and flexible node.js web application\r framework, providing a robust set of features for building single and multipage\r and hybrid web applications.”",
+  "main": "01-HelloExpress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

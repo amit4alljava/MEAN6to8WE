@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title Welcome Page
+        script(src="js/jquery-1.11.0.min.js")
+        script(src="js/ajax.js")
+    body
+        div
+            h1 Welcome  #{username}
+            table(border="1")
+                for items in docs
+                    tr
+                    td=items.username
+                    td=items.message
+                    td
+                        a(href="#" ,class="like" ,id="#{items._id}") Like
+                    td
+                        a(href="#", class="unlike",id="#{items._id}") Unlike
+
+
+

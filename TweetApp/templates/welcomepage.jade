@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title
+    body
+        div
+            h1 Welcome  #{username}
+            form(action='saveMessage',method="post")
+                input(type="hidden", name="uname" value="#{username}")
+                input(type="hidden", name="userid" value="#{userid}")
+                input(type="textarea", name="msg", placeholder="Type Message Here",rows="10", cols="50" )
+                input(type="submit", value="Send Message" )
+

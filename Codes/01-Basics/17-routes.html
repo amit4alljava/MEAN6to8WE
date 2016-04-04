@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Routing Demo</title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script>
+    var myApp = angular.module('myApp',['ngRoute']);
+        myApp.config(function($routeProvider){
+        $routeProvider
+            .when('/module1/:productId',{
+                templateUrl : '../templates/module1.tmpl.html',
+                controller : 'module1Controller'
+            })
+            .when('/module2/:customerId',{
+                templateUrl : '../templates/module2.tmpl.html',
+                controller : 'module2Controller'
+            })
+            .otherwise({
+                redirectTo : "/module1/1"
+            });
+        
+    });
+        myApp.controller("module1Controller",function($scope, $routeParams){
+            $scope.message = "Product information for " + $routeParams.productId + " has to be displayed here";
+        });
+        myApp.controller("module2Controller",function($scope, $routeParams){
+            $scope.message = "Customer information for " + $routeParams.customerId + " has to be displayed here";
+        });
+    </script>
+</head>
+<body ng-app="myApp">
+  <h1>Routing Demo</h1>
+  <a href="#module1">Module - 1</a> &nbsp; <a href="#module2">Module - 2</a>
+  <hr>
+   <ng-view></ng-view> 
+</body>
+</html>

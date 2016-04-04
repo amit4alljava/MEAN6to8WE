@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+
+<title>Controller Basics Demo-Powered by TKHTS.COM</title>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript">
+
+
+
+        function mycontroller($scope){
+            $scope.name = "Amit Srivastava";
+            $scope.details = {profession:'Trainer','company':'My'};  // Object
+            $scope.age = 25;
+            $scope.phones=[999,222,111]; // Array
+
+            $scope.data=function(){
+             return "Name is "+$scope.name+" Age is "+$scope.age;
+             };
+            console.log($scope);
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+
+<div ng-controller="mycontroller" >
+
+    Name is : {{name}} <br>
+    Company Name is: {{details.company}} &nbsp;, Profession is : {{details.profession}} <br>
+    Age is: {{age}}<br>
+    Phone is {{phones[0]}} <br>
+    Data :  {{data()}}
+</div>
+
+
+
+</body>
+</html>

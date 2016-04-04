@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function displayFullName(){
+            var firstName = document.getElementById("firstName").value;
+            var secondName = document.getElementById("lastName").value;
+            document.getElementById("fullName").innerHTML="Welcome "+firstName+" "+secondName;
+        }
+    </script>
+</head>
+<body>
+First Name<input type="text" id="firstName" onkeyup="displayFullName()" >
+<br>
+Last Name <input type="text" id="lastName" onkeyup="displayFullName()">
+<span id="fullName">Name Will be Display Here</span>
+
+</body>
+</html>

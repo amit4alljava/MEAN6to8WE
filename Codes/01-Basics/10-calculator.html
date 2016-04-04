@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        #divResult{
+            font-size: 28pt;
+            color : red;
+        }
+    </style>
+    <script src="../js/angular.min.js"></script>
+    <script>
+        // Model Code
+        function Calculator(){
+            this.result = 0;
+            this.add = function(number1,number2){
+                this.result += (number1 + number2);
+            };
+            this.subtract = function(number1,number2){
+                this.result += (number1 - number2);
+            };
+            this.multiply = function(number1,number2){
+                this.result += (number1 * number2);
+            }
+            this.divide = function(number1,number2){
+                this.result += (number1 / number2);
+            }
+        }
+        function calculatorController($scope){
+            $scope.number1 = 0;
+            $scope.number2 = 0;
+            $scope.operation = "";
+            var calculator = new Calculator();
+            
+            $scope.calculate = function(){
+                calculator[$scope.operation](parseInt($scope.number1,10),parseInt($scope.number2,10) );
+            }
+            $scope.getResult = function(){
+                $scope.result =  calculator.result;
+                console.log(calculator.result);
+            }
+        }
+    </script>
+</head>
+<body ng-app ng-controller="calculatorController">
+    <h1>Calculator</h1>
+    <hr>
+    <input type="text" ng-model="number1">
+    <input type="text" ng-model="number2">
+    <select ng-model="operation">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+    </select>
+    <input type="button" value="Calculate" ng-click="calculate()">
+    <br>
+    <input type="button" value="Result" ng-click="getResult()">
+    <div id="divResult">{{result}}</div>
+</body>
+</html>

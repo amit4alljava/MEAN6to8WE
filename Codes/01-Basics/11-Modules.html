@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+<title>Controller Basics Demo-Powered by TKHTS.COM</title>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+
+<script type="text/javascript">
+// Only one Module can use at one time in ng-app
+// Need to do Manual BootStrap of the Module
+var app = angular.module("mymodule",[]);
+var secondModule = angular.module("mysecondmodule",[]);
+app.controller("mycontroller",function($scope){
+    console.log("First Controller Call");
+         $scope.name = "Amit Srivastava";
+        $scope.details = {profession:'Trainer','company':'My'};  // Object
+        $scope.age = 25;
+        $scope.phones=[999,222,111]; // Array
+        console.log($scope);
+});
+secondModule.controller("secondController",function($scope){
+    console.log("Second Controller Call");
+    $scope.name="Amit";
+});
+
+
+</script>
+</head>
+<body >
+
+
+<div ng-app="mymodule" ng-controller="mycontroller" >
+
+    Name is : {{name}} <br>
+    Company Name is: {{details.company}} &nbsp;, Profession is : {{details.profession}} <br>
+    Age is: {{age}}<br>
+    Phone is {{phones[0]}}
+</div>
+<br>
+<h2>Second Module</h2>
+<div ng-app="mysecondmodule" ng-controller="secondController">
+Name is {{name}}
+
+</div>
+
+
+
+</body>
+</html>

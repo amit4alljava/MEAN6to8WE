@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sharing Data </title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/custom/controllers.js"></script>
+    <style>
+        #firstDiv{
+            border-style: solid;
+            border-color: red;
+            border-width: 3px;
+        }
+        #secondDiv{
+            border-style: solid;
+            border-color: green;
+            border-width: 3px;
+        }
+    </style>
+</head>
+<!--this example shows the Global Scope and Local Scope -->
+
+<body>
+Acting Like a Global Scope<input type="text" ng-model="message" placeholder="Type your name here">
+<div id="firstDiv"  ng-controller="firstController">
+    Name is {{name}} <br>
+    Age is {{age}} <br>
+    Message is {{message}} <br>
+    <input type="text" ng-model="localScopeMsg" placeholder="Type Local Scope Message">
+    <br>
+    Local Scope Message is {{localScopeMsg}} <br>
+    Designation is {{designation}}
+
+
+</div>
+<br>
+<br>
+<div id="secondDiv" ng-controller="secondController">
+    Name is {{name}} <br>
+    Age is {{age}} <br>
+    Company Name is {{companyName}} <br>
+    Message is {{message}} <br>
+    <input type="text" ng-model="localScopeMsg" placeholder="Type Local Scope Message">
+    <br>
+    Local Scope Message is {{localScopeMsg}} <br>
+    Designation is {{designation}}
+
+</div>
+<h1>Factory Example</h1>
+<div data-ng-app="mymodule" ng-controller="jsoncontroller">
+    {{jsonarray}}
+</div>
+</body>
+</html>

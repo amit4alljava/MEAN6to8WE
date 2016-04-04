@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+   <!-- <script src="../js/angular.min.js"></script>-->
+    <script src="../js/custom/mvc.js"></script>
+    <link href="../css/custom/mvc.css" rel="stylesheet">
+</head>
+<body>
+<div ng-app="mymvcapp" ng-controller="controller">
+<h1>CRUD User Data</h1>
+    <br>
+    <h3>Total No of Users are {{useroperations.countUsers()}} </h3>
+<table>
+    <tr>
+        <td>UserName</td><td><input type="text" ng-model="userid" placeholder="Type User Name Here"> </td>
+        <td>Email</td><td><input type="email" ng-model="emailId" placeholder="Type Email Here"> </td>
+        <td><button ng-click="useroperations.addUser()">Add New User</button></td>
+        <td><button >Clear</button> <button ng-click="useroperations.deleteUser()">Delete Marked</button></td>
+    </tr>
+</table>
+ <br>
+    <table border="1">
+        <tr>
+            <th>Action</th>
+            <th>UserName</th>
+            <th>Email</th>
+        </tr>
+        <tr ng-repeat="user in useroperations.userList" ng-class-even="'even'" ng-class-odd="'odd'" ng-class="{delete : user.isDeleted}">
+            <td><a ng-click="user.toggle()" >Delete</a></td>
+            <td>{{user.userName}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

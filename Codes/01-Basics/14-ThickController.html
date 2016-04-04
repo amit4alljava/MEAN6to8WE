@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="mymodule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/custom/controllers.js"></script>
+</head>
+<body>
+<div ng-controller="mycontroller">
+<h1>{{servicedata.message}}</h1>
+</div>
+</body>
+</html>
+
+<!-- In this example instead of writing the logic in a Controller we put inside the service and inject the service
+inside controller and controller share the service data using $scope -->

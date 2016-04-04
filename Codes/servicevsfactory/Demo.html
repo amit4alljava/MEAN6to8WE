@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module('myapp', []);
+
+        app.provider('task', function () {
+            var version;
+            return {
+                setVersion: function (value) {
+                    version = value;
+                },
+                $get: function () {
+                    return {
+                        title: 'The Matrix' + ' ' + version
+                    }
+                }
+            }
+        });
+        app.config(function (taskProvider) {
+            taskProvider.setVersion('Reloaded');
+        });
+        app.controller('ctrl', function ($scope,task) {
+            $scope.value =task.title;
+        });
+
+
+       /* var app= angular.module("myapp",[]);
+       app.service("MyService",function(){
+           alert("MyService Call " );
+           this.myobject = {id:1001,print:function(){
+               return "Print call";
+           }};
+       });
+       app.factory("MyFactory",function(){
+            alert("Factory Call " );
+           return {id:1001,print:function(){
+               return "Print call";
+           }};
+        });
+        app.controller("ctrl",function($scope,MyService){
+            alert("Ctrl Call "+MyService);
+            $scope.value = "Controller";
+            MyService.myobject.print();
+        });*/
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="ctrl">
+{{value}}
+</body>
+</html>
